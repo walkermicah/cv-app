@@ -1,5 +1,6 @@
 .Education {
-  align-self: center;
+  cursor: pointer;
+  height: 100%;
 }
 
 .Education ul {
@@ -10,10 +11,16 @@
 
 .Education-form {
   display: grid;
+  align-items: start;
   gap: 2rem;
   margin: 1rem 0rem;
   height: 27rem;
   overflow-y: scroll;
+}
+
+.Education-form-block {
+  display: grid;
+  gap: 0.5rem;
 }
 
 .Education-form-field {
@@ -23,6 +30,12 @@
   align-items: center;
 }
 
-.Education-form .CloseFormBtn {
-  justify-self: start;
+/* .Education-form .CloseFormBtn {
+  justify-self: center;
+} */
+
+.Education-form .DeleteItemBtn {
+  font-size: 2rem;
+  justify-self: center;
+  width: 100%;
 }

@@ -10,19 +10,30 @@
 .Experience-form {
   padding: 1rem 0rem;
   display: grid;
-  gap: 2rem;
+  gap: 3rem;
+}
+
+.Experience-form-block {
+  display: grid;
+  grid-template-columns: max-content min-content;
+  gap: 3rem;
 }
 
 .Experience-form-field {
   display: grid;
-  grid-template-columns: 10rem 10rem;
-  gap: 0.5rem;
+  grid-template-columns: 10rem min-content;
   align-items: center;
   justify-items: start;
 }
 
-.Experience-form .CloseFormBtn {
-  justify-self: start;
+.Experience-form-fields {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.Experience-form-btns {
+  display: flex;
+  gap: 1rem;
 }
 
 .Experience-form input {
@@ -32,4 +43,12 @@
 .Experience-form textarea {
   width: 30rem;
   height: 20rem;
+}
+
+.Experience-form .CloseFormBtn {
+  justify-self: start;
+}
+
+.Experience-form .DeleteItemBtn {
+  font-size: 2.5rem;
 }

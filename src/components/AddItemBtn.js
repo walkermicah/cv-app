@@ -6,15 +6,14 @@ class CloseFormBtn extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
-    e.preventDefault();
-    this.props.handleSubmit();
+  handleClick() {
+    this.props.addItem();
   }
 
   render() {
     return (
-      <button className="CloseFormBtn" type="submit" onClick={this.handleClick}>
-        SAVE
+      <button type="button" onClick={this.handleClick}>
+        +
       </button>
     );
   }

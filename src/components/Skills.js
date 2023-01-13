@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import AddItemBtn from './AddItemBtn';
+import DeleteItemBtn from './DeleteItemBtn';
 import CloseFormBtn from './CloseFormBtn';
 import uniqid from 'uniqid';
 import '../styles/Skills.css';
@@ -11,12 +13,10 @@ class Skills extends Component {
       skills: [
         { skill: 'Problem solving', id: uniqid() },
         { skill: 'Time management', id: uniqid() },
-        { skill: '', id: uniqid() },
-        { skill: '', id: uniqid() },
-        { skill: '', id: uniqid() },
-        { skill: '', id: uniqid() },
       ],
     };
+    this.addSkill = this.addSkill.bind(this);
+    this.deleteSkill = this.deleteSkill.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,6 +24,18 @@ class Skills extends Component {
 
   toggleEdit() {
     this.setState({ editing: !this.state.editing });
+  }
+
+  addSkill() {
+    this.setState({
+      skills: [...this.state.skills, { skill: '', id: uniqid() }],
+    });
+  }
+
+  deleteSkill(e) {
+    this.setState({
+      skills: this.state.skills.filter((s) => s.id !== e.target.id),
+    });
   }
 
   handleChange(e) {
@@ -53,15 +65,20 @@ class Skills extends Component {
     const form = (
       <form className="Skills-form" onSubmit={this.handleSubmit}>
         {skills.map((s) => (
-          <input
-            key={s.id}
-            id={s.id}
-            value={s.skill}
-            type="text"
-            onChange={this.handleChange}
-          />
+          <div className="Skills-form-field" key={s.id}>
+            <input
+              id={s.id}
+              value={s.skill}
+              type="text"
+              onChange={this.handleChange}
+            />
+            <DeleteItemBtn deleteItem={this.deleteSkill} id={s.id} />
+          </div>
         ))}
-        <CloseFormBtn handleSubmit={this.handleSubmit} />
+        <div className="Skills-form-btns">
+          <AddItemBtn addItem={this.addSkill} />
+          <CloseFormBtn handleSubmit={this.handleSubmit} />
+        </div>
       </form>
     );
 
@@ -70,7 +87,7 @@ class Skills extends Component {
         className="Skills"
         onClick={!editing ? this.toggleEdit : undefined}
       >
-        <h3>Skills</h3>
+        <h3>Skills </h3>
         {this.state.editing ? form : content}
       </section>
     );

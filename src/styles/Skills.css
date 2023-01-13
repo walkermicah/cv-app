@@ -14,6 +14,17 @@
   margin: 1rem 0rem;
 }
 
+.Skills-form-field {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.Skills-form-btns {
+  display: flex;
+  gap: 1rem;
+}
+
 .Skills-form .CloseFormBtn {
   justify-self: start;
 }

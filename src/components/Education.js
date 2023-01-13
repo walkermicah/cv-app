@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Institution from './Institution';
 import CloseFormBtn from './CloseFormBtn';
+import AddItemBtn from './AddItemBtn';
+import DeleteItemBtn from './DeleteItemBtn';
 import uniqid from 'uniqid';
 import '../styles/Education.css';
 
@@ -18,6 +20,23 @@ class Education extends Component {
           end: 2023,
           id: uniqid(),
         },
+      ],
+    };
+    this.toggleEdit = this.toggleEdit.bind(this);
+    this.addInstitution = this.addInstitution.bind(this);
+    this.deleteInstitution = this.deleteInstitution.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  toggleEdit() {
+    this.setState({ editing: !this.state.editing });
+  }
+
+  addInstitution() {
+    this.setState({
+      educ: [
+        ...this.state.educ,
         {
           degree: 'Degree name / major',
           institution: 'Institution',
@@ -27,14 +46,13 @@ class Education extends Component {
           id: uniqid(),
         },
       ],
-    };
-    this.toggleEdit = this.toggleEdit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    });
   }
 
-  toggleEdit() {
-    this.setState({ editing: !this.state.editing });
+  deleteInstitution(e) {
+    this.setState({
+      educ: this.state.educ.filter((ed) => ed.id !== e.target.id),
+    });
   }
 
   handleChange(e) {
@@ -72,7 +90,7 @@ class Education extends Component {
     const form = (
       <form className="Education-form">
         {educ.map((ed) => (
-          <div key={ed.id}>
+          <div key={ed.id} className="Education-form-block">
             <div className="Education-form-field">
               <label htmlFor="degree">Degree</label>
               <input
@@ -132,9 +150,13 @@ class Education extends Component {
                 onChange={this.handleChange}
               />
             </div>
+            <DeleteItemBtn deleteItem={this.deleteInstitution} id={ed.id} />
           </div>
         ))}
-        <CloseFormBtn handleSubmit={this.handleSubmit} />
+        <div className="Skills-form-btns">
+          <AddItemBtn addItem={this.addInstitution} />
+          <CloseFormBtn handleSubmit={this.handleSubmit} />
+        </div>
       </form>
     );
 
