@@ -1,13 +1,13 @@
 .ProfilePic {
   height: 15rem;
   width: 15rem;
-  justify-self: center;
+  justify-self: end;
+  background-color: black;
 }
 
 .ProfilePic-initials {
   height: 100%;
   width: 100%;
-  background-color: black;
   color: white;
   font-size: 5rem;
   padding: 1rem;
