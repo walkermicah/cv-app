@@ -1,0 +1,16 @@
+.Profile {
+  padding: 2.5rem;
+  display: grid;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Profile p {
+  padding: 1rem 0rem;
+}
+
+.Profile-form textarea {
+  width: 100%;
+  height: 10rem;
+  margin-bottom: 0.5rem;
+}

@@ -1,0 +1,19 @@
+.Skills {
+  cursor: pointer;
+}
+
+.Skills ul {
+  padding: 1rem 0rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.Skills-form {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1rem 0rem;
+}
+
+.Skills-form .CloseFormBtn {
+  justify-self: start;
+}

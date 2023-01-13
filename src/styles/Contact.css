@@ -1,0 +1,30 @@
+.Contact {
+  cursor: pointer;
+  padding-top: 2rem;
+}
+
+.Contact ul {
+  display: grid;
+  gap: 2rem;
+}
+
+.Contact li {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.Contact-form {
+  display: grid;
+  grid-template-rows: repeat(5, min-content);
+  gap: 0.5rem;
+}
+
+.Contact-form .form-field {
+  grid-template-columns: 7rem 1fr;
+  align-items: center;
+}
+
+.Contact-form .CloseFormBtn {
+  justify-self: end;
+}

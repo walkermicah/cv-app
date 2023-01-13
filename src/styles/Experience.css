@@ -1,0 +1,35 @@
+.Experience {
+  padding: 1.5rem 2.5rem;
+  cursor: pointer;
+}
+
+.Experience ul {
+  display: grid;
+}
+
+.Experience-form {
+  padding: 1rem 0rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.Experience-form-field {
+  display: grid;
+  grid-template-columns: 10rem 10rem;
+  gap: 0.5rem;
+  align-items: center;
+  justify-items: start;
+}
+
+.Experience-form .CloseFormBtn {
+  justify-self: start;
+}
+
+.Experience-form input {
+  width: 30rem;
+}
+
+.Experience-form textarea {
+  width: 30rem;
+  height: 20rem;
+}

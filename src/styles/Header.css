@@ -1,0 +1,30 @@
+.Heading {
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  cursor: pointer;
+}
+
+.Heading-Text {
+  width: auto;
+}
+
+.Heading h1 {
+  font-size: 4rem;
+  letter-spacing: 3px;
+}
+
+.Heading h2 {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  padding-top: 0.5rem;
+}
+
+.Heading-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-flow: column;
+  align-items: end;
+  justify-items: start;
+}

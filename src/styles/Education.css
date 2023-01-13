@@ -1,0 +1,28 @@
+.Education {
+  align-self: center;
+}
+
+.Education ul {
+  padding-top: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.Education-form {
+  display: grid;
+  gap: 2rem;
+  margin: 1rem 0rem;
+  height: 27rem;
+  overflow-y: scroll;
+}
+
+.Education-form-field {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.Education-form .CloseFormBtn {
+  justify-self: start;
+}

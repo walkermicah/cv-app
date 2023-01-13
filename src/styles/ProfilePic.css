@@ -1,0 +1,19 @@
+.ProfilePic {
+  height: 15rem;
+  width: 15rem;
+  justify-self: center;
+}
+
+.ProfilePic-initials {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-size: 5rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  text-transform: uppercase;
+}
