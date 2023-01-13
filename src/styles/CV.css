@@ -1,4 +1,5 @@
 .CV {
+  min-height: 100vh;
   width: 70vw;
   background-color: white;
   padding: 2rem;
@@ -16,7 +17,7 @@
 
 .CV-sidebar {
   display: grid;
-  grid-template-rows: 18rem 30rem 30rem;
+  grid-template-rows: 18rem minmax(18rem, min-content) min-content;
   grid-template-columns: 25rem;
   align-items: start;
   align-content: start;
