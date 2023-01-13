@@ -13,6 +13,7 @@
 .CV-main {
   display: grid;
   grid-template-rows: 20rem 23rem min-content;
+  gap: 2rem;
 }
 
 .CV-sidebar {
@@ -21,7 +22,7 @@
   grid-template-columns: 25rem;
   align-items: start;
   align-content: start;
-  gap: 3.5rem;
+  gap: 5rem;
   padding: 1rem 2rem;
 }
 

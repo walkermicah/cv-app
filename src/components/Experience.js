@@ -17,7 +17,26 @@ class Experience extends Component {
           company: 'Company',
           start: '2019',
           end: '2020',
-          duties: 'List your job duties here',
+          duties:
+            'List your job duties here. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+          id: uniqid(),
+        },
+        {
+          title: 'Position title',
+          company: 'Company',
+          start: '2019',
+          end: '2020',
+          duties:
+            'List your job duties here. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+          id: uniqid(),
+        },
+        {
+          title: 'Position title',
+          company: 'Company',
+          start: '2019',
+          end: '2020',
+          duties:
+            'List your job duties here. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
           id: uniqid(),
         },
       ],

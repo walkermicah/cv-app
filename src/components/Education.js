@@ -20,6 +20,14 @@ class Education extends Component {
           end: 2023,
           id: uniqid(),
         },
+        {
+          degree: 'Degree name / major',
+          institution: 'Institution',
+          location: 'Location',
+          start: 2022,
+          end: 2023,
+          id: uniqid(),
+        },
       ],
     };
     this.toggleEdit = this.toggleEdit.bind(this);

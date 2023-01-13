@@ -6,7 +6,7 @@ class Nav extends Component {
     return (
       <nav className="Nav">
         <div className="Nav-instructions">
-          <p className="first-p">Resume builder</p>
+          <p>Resume builder</p>
           <p>Click on a section to edit the information</p>
         </div>
       </nav>

@@ -13,6 +13,7 @@ class Skills extends Component {
       skills: [
         { skill: 'Problem solving', id: uniqid() },
         { skill: 'Time management', id: uniqid() },
+        { skill: 'Team building', id: uniqid() },
       ],
     };
     this.addSkill = this.addSkill.bind(this);
