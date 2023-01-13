@@ -1,26 +1,26 @@
-.Heading {
+.Header {
   padding: 2.5rem;
   display: grid;
-  grid-template-columns: 1fr min-content;
+  grid-template-columns: 1fr 1fr;
   cursor: pointer;
 }
 
-.Heading-Text {
+.Header-Text {
   width: auto;
 }
 
-.Heading h1 {
+.Header h1 {
   font-size: 4rem;
   letter-spacing: 3px;
 }
 
-.Heading h2 {
+.Header h2 {
   font-size: 1.5rem;
   letter-spacing: 1px;
   padding-top: 0.5rem;
 }
 
-.Heading-form {
+.Header-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;

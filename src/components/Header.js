@@ -35,7 +35,10 @@ class Header extends Component {
     const lastInitial = lastName.slice(0, 1);
 
     const content = (
-      <div className="Heading-text">
+      <div
+        className="Header-text"
+        onClick={!editing ? this.toggleEdit : undefined}
+      >
         <h1>
           {firstName} <br></br>
           {lastName}
@@ -45,7 +48,7 @@ class Header extends Component {
     );
 
     const form = (
-      <form className="Heading-form" onSubmit={this.handleSubmit}>
+      <form className="Header-form" onSubmit={this.handleSubmit}>
         <div className="form-field">
           <label htmlFor="first-name">First Name</label>
           <input
@@ -84,10 +87,7 @@ class Header extends Component {
     );
 
     return (
-      <header
-        className="Heading"
-        onClick={!editing ? this.toggleEdit : undefined}
-      >
+      <header className="Header">
         {this.state.editing ? form : content}
         <ProfilePic firstInitial={firstInitial} lastInitial={lastInitial} />
       </header>
