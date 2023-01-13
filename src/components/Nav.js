@@ -6,10 +6,9 @@ class Nav extends Component {
     return (
       <nav className="Nav">
         <div className="Nav-instructions">
-          <p className="first-p">Click on a section to edit the information</p>
-          <p>Click your initials to upload a photo</p>
+          <p className="first-p">Resume builder</p>
+          <p>Click on a section to edit the information</p>
         </div>
-        <button>Save as PDF</button>
       </nav>
     );
   }
