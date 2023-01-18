@@ -1,22 +1,11 @@
-import React, { Component } from 'react';
+export default function AddItemBtn(props) {
+  const handleClick = () => {
+    props.addItem();
+  };
 
-class CloseFormBtn extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    this.props.addItem();
-  }
-
-  render() {
-    return (
-      <button type="button" onClick={this.handleClick}>
-        +
-      </button>
-    );
-  }
+  return (
+    <button type="button" onClick={handleClick}>
+      +
+    </button>
+  );
 }
-
-export default CloseFormBtn;

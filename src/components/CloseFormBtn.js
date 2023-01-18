@@ -1,23 +1,12 @@
-import React, { Component } from 'react';
-
-class CloseFormBtn extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(e) {
+export default function CloseFormBtn(props) {
+  const handleClick = (e) => {
     e.preventDefault();
-    this.props.handleSubmit();
-  }
+    props.handleSubmit();
+  };
 
-  render() {
-    return (
-      <button className="CloseFormBtn" type="submit" onClick={this.handleClick}>
-        SAVE
-      </button>
-    );
-  }
+  return (
+    <button className="CloseFormBtn" type="submit" onClick={handleClick}>
+      SAVE
+    </button>
+  );
 }
-
-export default CloseFormBtn;

@@ -1,195 +1,168 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Position from './Position';
 import AddItemBtn from './AddItemBtn';
 import DeleteItemBtn from './DeleteItemBtn';
 import CloseFormBtn from './CloseFormBtn';
+import useToggleEdit from '../hooks/useToggleEdit';
 import uniqid from 'uniqid';
 import '../styles/Experience.css';
 
-class Experience extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      editing: false,
-      exp: [
-        {
-          title: 'Position title',
-          company: 'Company',
-          start: '2019',
-          end: '2020',
-          duties:
-            'List your job duties here. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-          id: uniqid(),
-        },
-        {
-          title: 'Position title',
-          company: 'Company',
-          start: '2019',
-          end: '2020',
-          duties:
-            'List your job duties here. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-          id: uniqid(),
-        },
-        {
-          title: 'Position title',
-          company: 'Company',
-          start: '2019',
-          end: '2020',
-          duties:
-            'List your job duties here. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-          id: uniqid(),
-        },
-      ],
-    };
-    this.toggleEdit = this.toggleEdit.bind(this);
-    this.addJob = this.addJob.bind(this);
-    this.deleteJob = this.deleteJob.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+export default function Experience() {
+  const initialExperience = [
+    {
+      title: 'Position title',
+      company: 'Company',
+      start: 2019,
+      end: 2020,
+      duties:
+        'List your job duties here. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      id: uniqid(),
+    },
+    {
+      title: 'Position title',
+      company: 'Company',
+      start: 2019,
+      end: 2020,
+      duties:
+        'List your job duties here. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      id: uniqid(),
+    },
+    {
+      title: 'Position title',
+      company: 'Company',
+      start: 2019,
+      end: 2020,
+      duties:
+        'List your job duties here. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      id: uniqid(),
+    },
+  ];
 
-  addJob() {
-    this.setState({
-      exp: [
-        ...this.state.exp,
-        {
-          title: 'Position title',
-          company: 'Company',
-          start: '2019',
-          end: '2020',
-          duties: 'List your job duties here',
-          id: uniqid(),
-        },
-      ],
-    });
-  }
+  const [editing, toggleEdit] = useToggleEdit();
+  const [experience, setExperience] = useState(initialExperience);
 
-  deleteJob(e) {
-    this.setState({
-      exp: this.state.exp.filter((ex) => ex.id !== e.target.id),
-    });
-  }
+  const addJob = () => {
+    setExperience([
+      ...experience,
+      {
+        title: 'Position title',
+        company: 'Company',
+        start: '2019',
+        end: '2020',
+        duties: 'List your job duties here',
+        id: uniqid(),
+      },
+    ]);
+    console.log(experience);
+  };
 
-  toggleEdit() {
-    this.setState({ editing: !this.state.editing });
-  }
+  const deleteJob = (e) => {
+    setExperience(experience.filter((ex) => ex.id !== e.target.id));
+  };
 
-  handleChange(e) {
-    this.setState({
-      exp: this.state.exp.map((ex) => {
+  const handleChange = (e) => {
+    setExperience(
+      experience.map((ex) => {
         if (e.target.dataset.id === ex.id)
           return { ...ex, [e.target.name]: e.target.value };
         return ex;
-      }),
-    });
-  }
-
-  handleSubmit() {
-    this.toggleEdit();
-  }
-
-  render() {
-    const { exp, editing } = this.state;
-
-    const content = (
-      <ul>
-        {exp.map((p) => (
-          <Position
-            title={p.title}
-            company={p.company}
-            startDate={p.start}
-            endDate={p.end}
-            duties={p.duties}
-            key={p.id}
-          />
-        ))}
-      </ul>
+      })
     );
+  };
 
-    const form = (
-      <form className="Experience-form">
-        {exp.map((ex) => (
-          <div key={ex.id} className="Experience-form-block">
-            <div className="Experience-form-fields">
-              <div className="Experience-form-field">
-                <label htmlFor="title">Position title</label>
-                <input
-                  id="title"
-                  value={ex.title}
-                  type="text"
-                  name="title"
-                  data-id={ex.id}
-                  onChange={this.handleChange}
-                />
-              </div>
+  const content = (
+    <ul>
+      {experience.map((p) => (
+        <Position
+          title={p.title}
+          company={p.company}
+          startDate={p.start}
+          endDate={p.end}
+          duties={p.duties}
+          key={p.id}
+        />
+      ))}
+    </ul>
+  );
 
-              <div className="Experience-form-field">
-                <label htmlFor="company">Company</label>
-                <input
-                  id="company"
-                  value={ex.company}
-                  type="text"
-                  name="company"
-                  data-id={ex.id}
-                  onChange={this.handleChange}
-                />
-              </div>
-
-              <div className="Experience-form-field">
-                <label htmlFor="start">Start</label>
-                <input
-                  id="start"
-                  value={ex.start}
-                  type="text"
-                  name="start"
-                  data-id={ex.id}
-                  onChange={this.handleChange}
-                />
-              </div>
-
-              <div className="Experience-form-field">
-                <label htmlFor="end">End</label>
-                <input
-                  id="end"
-                  value={ex.end}
-                  type="text"
-                  name="end"
-                  data-id={ex.id}
-                  onChange={this.handleChange}
-                />
-              </div>
-
-              <div className="Experience-form-field">
-                <label htmlFor="duties">Job duties</label>
-                <textarea
-                  id="duties"
-                  value={ex.duties}
-                  name="duties"
-                  data-id={ex.id}
-                  onChange={this.handleChange}
-                />
-              </div>
+  const form = (
+    <form className="Experience-form">
+      {experience.map((ex) => (
+        <div key={ex.id} className="Experience-form-block">
+          <div className="Experience-form-fields">
+            <div className="Experience-form-field">
+              <label htmlFor="title">Position title</label>
+              <input
+                id="title"
+                value={ex.title}
+                type="text"
+                name="title"
+                data-id={ex.id}
+                onChange={handleChange}
+              />
             </div>
-            <DeleteItemBtn deleteItem={this.deleteJob} id={ex.id} />
+
+            <div className="Experience-form-field">
+              <label htmlFor="company">Company</label>
+              <input
+                id="company"
+                value={ex.company}
+                type="text"
+                name="company"
+                data-id={ex.id}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="Experience-form-field">
+              <label htmlFor="start">Start</label>
+              <input
+                id="start"
+                value={ex.start}
+                type="text"
+                name="start"
+                data-id={ex.id}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="Experience-form-field">
+              <label htmlFor="end">End</label>
+              <input
+                id="end"
+                value={ex.end}
+                type="text"
+                name="end"
+                data-id={ex.id}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="Experience-form-field">
+              <label htmlFor="duties">Job duties</label>
+              <textarea
+                id="duties"
+                value={ex.duties}
+                name="duties"
+                data-id={ex.id}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-        ))}
-        <div className="Experience-form-btns">
-          <AddItemBtn addItem={this.addJob} />
-          <CloseFormBtn handleSubmit={this.handleSubmit} />
+          <DeleteItemBtn deleteItem={deleteJob} id={ex.id} />
         </div>
-      </form>
-    );
+      ))}
+      <div className="Experience-form-btns">
+        <AddItemBtn addItem={addJob} />
+        <CloseFormBtn handleSubmit={toggleEdit} />
+      </div>
+    </form>
+  );
 
-    return (
-      <section
-        className="Experience"
-        onClick={!editing ? this.toggleEdit : undefined}
-      >
-        <h3>Experience</h3>
-        {editing ? form : content}
-      </section>
-    );
-  }
+  return (
+    <section className="Experience" onClick={!editing ? toggleEdit : undefined}>
+      <h3>Experience</h3>
+      {editing ? form : content}
+    </section>
+  );
 }
-
-export default Experience;
